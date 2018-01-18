@@ -32,7 +32,7 @@ file a little bit. There is a dubious XML that neither Python XML accepts:
         color="C_title_focused" />
 </draw_ops>
 
-Python doesn't like the "< 3.1" or ">= 3.1" attributes. Change them to "&lt; 3.1" and ""&gt= 3.1", respectevly.
+Python doesn't like the "< 3.1" or ">= 3.1" attributes. Change them to "&lt; 3.1" and "gt= 3.1", respectevly.
 I don't know if this is a sloppy XML or Python bug, and can't be bothered to figure it out. :)
 
 Todo:
