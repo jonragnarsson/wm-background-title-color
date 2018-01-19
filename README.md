@@ -1,5 +1,5 @@
 ### A simple hack to adjust WM theme colours automatically when a new desktop image loads.
-####Tested on GTK/Cinnamon.
+#### Tested on GTK/Cinnamon.
 
 ![Green](img/green.png)
 
