@@ -11,7 +11,7 @@ The script then modifies the XML and overwrites the metacity-theme-3.xml file.
 You will see that the program crashes, the first time it is run. You will have to modify the metacity-theme-3.xml_
 file a little bit. There is a dubious XML that neither Python XML accepts:
 
-```
+```XML
 <draw_ops name="title_focused">
     <title version="< 3.1"
         x="(0 `max` ((width - title_width) / 2))"
