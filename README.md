@@ -1,7 +1,7 @@
 ## A simple hack to adjust WM theme automatically when a new backgroun loads.
 Tested on GTK/Cinnamon.
 
-![Green](https://github.com/jonragnarsson/wm-background-title-color/img/green.png)
+![Green](img/green.png)
 
 #### Install:
 1. You need to make a copy of the theme you are going to use into your ~/.theme folder.
