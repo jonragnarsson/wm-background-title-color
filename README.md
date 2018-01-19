@@ -1,6 +1,8 @@
 ## A simple hack to adjust WM theme automatically when a new backgroun loads.
 Tested on GTK/Cinnamon.
 
+![Green](https://github.com/jonragnarsson/wm-background-title-color/img/green.png)
+
 #### Install:
 1. You need to make a copy of the theme you are going to use into your ~/.theme folder.
 2. The theme needs to have the metacity-1 folder with a metacity-theme-3.xml file
@@ -44,4 +46,4 @@ Todo:
 
 I borrowed the algorithm script from https://gist.github.com/pisceanfoot/9fdb8f5efdba1324d582a4b98fb96a86, I hope he doesn't mind
 
-Run: python3 setcolor.py
+Run: `python3 setcolor.py`
