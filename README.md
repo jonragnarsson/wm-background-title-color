@@ -1,9 +1,9 @@
 ### A simple hack to adjust WM theme colours automatically when a new desktop image loads.
 #### Tested on GTK/Cinnamon.
 
-![Green](img/green.png)
+![Green](img/green_purple.png)
 
-#### Install:
+#### Install
 1. You need to make a copy of the theme you are going to use into your ~/.theme folder.
 2. The theme needs to have the metacity-1 folder with a metacity-theme-3.xml file
 
@@ -36,14 +36,14 @@ file a little bit. There is a dubious XML that neither Python XML accepts:
 </draw_ops>
 ```
 
-Python XML parsers doesn't like the "< 3.1" or ">= 3.1" attributes. Change them to "&lt; 3.1" and "&gt;= 3.1", respectevly.
+Python XML parsers doesn't like the `"< 3.1"` or `">= 3.1"` attributes. Change them to `"&lt; 3.1"` and `"&gt;= 3.1"`, respectevly.
 I don't know if this is a sloppy XML or Python XML libraries bug, and can't be bothered to figure it out. :smiley:
 
-Todo:
+#### Todo
 * Check for light themes, should be simple, titlebar/titlebar text colors comparision.
 * Better error handling, sometimes the color algorithm crashes and leaves everything hanging, becuase I'm waiting for the next output from gsettings.
 
 
-I borrowed the algorithm script from https://gist.github.com/pisceanfoot/9fdb8f5efdba1324d582a4b98fb96a86, I hope he doesn't mind
+I borrowed the algorithm script from ![pisceanfoot](https://gist.github.com/pisceanfoot/9fdb8f5efdba1324d582a4b98fb96a86), I hope he doesn't mind
 
 Run: `python3 setcolor.py`
