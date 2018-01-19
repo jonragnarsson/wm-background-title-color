@@ -41,5 +41,6 @@ Todo:
     waiting for the next output from gsettings.
 
 
-I borrowed the algorithm script from https://gist.github.com/pisceanfoot/9fdb8f5efdba1324d582a4b98fb96a86,
-hope he doesn't mind
+I borrowed the algorithm script from https://gist.github.com/pisceanfoot/9fdb8f5efdba1324d582a4b98fb96a86, I hope he doesn't mind
+
+Run: python3 setcolor.py
