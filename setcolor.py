@@ -137,17 +137,18 @@ def darkest(hexcols):
 def updatexml(rawuri):
     url = urlparse(rawuri)
     colors = list(colorz(unquote(url.path), 3))
+    print(unquote(url.path))
     print(colors)
     _base = darkest(colors)
     h = Hexnum(_base)
     # print('base:', h.hsv())
     h.adjustHSV(0, 0, 0.12)
     # print('lighter:', h.hsv())
-    _lighter = '#'+h.hexstr
+    _lighter = '#{}'.format(h.hexstr)
     h = Hexnum(_base)
     h.adjustHSV(0, -0.3, 0.05)
     # print('nofocus:', h.hsv())
-    _nofocus = '#'+h.hexstr
+    _nofocus = '#{}'.format(h.hexstr)
     print('base:', _base, 'nofcus:', _nofocus, 'lighter:', _lighter)
     xf = ET.parse(backup)
     root = xf.getroot()
