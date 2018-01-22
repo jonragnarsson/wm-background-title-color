@@ -1,6 +1,8 @@
 from collections import namedtuple
 from math import sqrt
 import random
+from timeit import default_timer as timer
+
 try:
     import Image
 except ImportError:
@@ -23,16 +25,15 @@ def rtoh(rgb):
 
 
 def colorz(filename, n=3):
+    # start = timer()
     img = Image.open(filename)
-    img.thumbnail((200, 200))
-    w, h = img.size
+    img.thumbnail((120, 120))
 
     points = get_points(img)
     clusters = kmeans(points, n, 1)
     rgbs = [map(int, c.center.coords) for c in clusters]
 
-    # print('---'.join('%0sx' % p for p in rgbs))
-    # return '#%s' % ''.join(('%02x' % p for p in rgbs))
+    # print('time:', timer() - start)
     return map(rtoh, rgbs)
 
 
