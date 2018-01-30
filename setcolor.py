@@ -136,7 +136,7 @@ def darkest(hexcols):
 
 def updatexml(rawuri):
     url = urlparse(rawuri)
-    colors = list(colorz(unquote(url.path), 3))
+    colors = list(colorz(unquote(url.path), 4))
     print(unquote(url.path))
     print(colors)
     _base = darkest(colors)
