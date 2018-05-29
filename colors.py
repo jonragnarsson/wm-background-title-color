@@ -38,9 +38,12 @@ def colorz(filename, n=3):
 
 
 def euclidean(p1, p2):
-    return sqrt(sum([
-        (p1.coords[i] - p2.coords[i]) ** 2 for i in range(p1.n)
-    ]))
+    try:
+        return sqrt(sum([
+            (p1.coords[i] - p2.coords[i]) ** 2 for i in range(p1.n)
+        ]))
+    except TypeError:
+        return 0
 
 
 def calculate_center(points, n):
