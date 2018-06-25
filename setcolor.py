@@ -143,17 +143,24 @@ def updatexml(rawuri):
         return
     print(unquote(url.path))
     print(colors)
-    _base = darkest(colors)
-    h = Hexnum(_base)
-    # print('base:', h.hsv())
-    h.adjustHSV(0, 0, 0.12)
+    _base = brightest(colors)
+    print('base: ', _base)
+    col = Hexnum(_base)
+
+    h, s, v = col.hsv()
+    col.setHSV(h, 0.5, 0.4)
+    _base = '#'+col.hexstr
+
+    #col.adjustHSV(0, 0, 0.12)
     # print('lighter:', h.hsv())
-    _lighter = '#{}'.format(h.hexstr)
+    _lighter = '#{}'.format(col.hexstr)
     h = Hexnum(_base)
-    h.adjustHSV(0, -0.3, 0.05)
+
+    col.adjustHSV(0, -0.3, 0.05)
     # print('nofocus:', h.hsv())
-    _nofocus = '#{}'.format(h.hexstr)
+    _nofocus = '#{}'.format(col.hexstr)
     print('base:', _base, 'nofcus:', _nofocus, 'lighter:', _lighter)
+
     xf = ET.parse(backup)
     root = xf.getroot()
     for c in root.findall('constant'):

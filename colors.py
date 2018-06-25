@@ -43,7 +43,8 @@ def euclidean(p1, p2):
             (p1.coords[i] - p2.coords[i]) ** 2 for i in range(p1.n)
         ]))
     except TypeError:
-        return 0
+        print('ERR')
+        return 5000
 
 
 def calculate_center(points, n):
@@ -66,6 +67,7 @@ def kmeans(points, k, min_diff):
             smallest_distance = float('Inf')
             for i in range(k):
                 distance = euclidean(p, clusters[i].center)
+                # print('distance:',distance)
                 if distance < smallest_distance:
                     smallest_distance = distance
                     idx = i
