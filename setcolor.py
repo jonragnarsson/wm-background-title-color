@@ -106,10 +106,18 @@ def gwatch(path, what, callback=None):
 def resettheme(theme):
     # gsettings reset org.cinnamon.desktop.wm.preferences theme;
     # gsettings set org.cinnamon.desktop.wm.preferences theme 'Mint-Y-Yltra-Dark'
-    with subprocess.Popen(['gsettings', 'reset', 'org.cinnamon.desktop.wm.preferences', 'theme'], stdout=subprocess.PIPE) as proc:
-        l = proc.stdout.readline().decode('ascii').strip()
-    sleep(0.2)  # sometimes it fails.
-    gset('org.cinnamon.desktop.wm.preferences', 'theme', theme)
+    # with subprocess.Popen(['metacity-message', 'reload-theme'], stdout=subprocess.PIPE) as proc:
+    #    l = proc.stdout.readline().decode('ascii').strip()
+    # print('gsettings reset org.cinnamon.desktop.wm.preferences theme')
+    # print('gsettings set org.cinnamon.desktop.wm.preferences theme {}'.format(theme))
+    sleep(1.5)
+    # subprocess.run(['gsettings', 'reset', 'org.cinnamon.desktop.wm.preferences', 'theme'])
+    subprocess.call('gsettings reset org.cinnamon.desktop.wm.preferences theme', shell=True)
+    subprocess.call('gsettings set org.cinnamon.desktop.wm.preferences theme {}'.format(theme), shell=True)
+    #with subprocess.run(['gsettings', 'reset', 'org.cinnamon.desktop.wm.preferences', 'theme'], stdout=subprocess.PIPE) as proc:
+    #    l = proc.stdout.readline().decode('ascii').strip()
+    #print('115', l)
+    # gset('org.cinnamon.desktop.wm.preferences', 'theme', theme)
 
 
 def brightest(hexcols):
@@ -143,20 +151,19 @@ def updatexml(rawuri):
         return
     print(unquote(url.path))
     print(colors)
-    _base = brightest(colors)
-    print('base: ', _base)
+    # _base = brightest(colors)
+    _base = colors[1]
     col = Hexnum(_base)
 
     h, s, v = col.hsv()
-    col.setHSV(h, 0.5, 0.4)
+    col.setHSV(h, 0.6, 0.3)
     _base = '#'+col.hexstr
 
     #col.adjustHSV(0, 0, 0.12)
-    # print('lighter:', h.hsv())
     _lighter = '#{}'.format(col.hexstr)
     h = Hexnum(_base)
 
-    col.adjustHSV(0, -0.3, 0.05)
+    col.adjustHSV(0, -0.3, 0.1)
     # print('nofocus:', h.hsv())
     _nofocus = '#{}'.format(col.hexstr)
     print('base:', _base, 'nofcus:', _nofocus, 'lighter:', _lighter)
@@ -171,7 +178,7 @@ def updatexml(rawuri):
         if c.attrib['name'] in Cunfocused:
             c.attrib['value'] = _nofocus
         if c.attrib['name'] == 'C_title_unfocused':
-            h.adjustHSV(0, -0.3, 0.3)
+            h.adjustHSV(0, -0.3, 0.4)
             c.attrib['value'] = '#'+h.hexstr
     xf.write(fullname)
     resettheme(theme)
